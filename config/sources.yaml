@@ -1,0 +1,157 @@
+sources:
+  # ═══════════════════════════════════════
+  # Commercial AI APIs
+  # ═══════════════════════════════════════
+
+  - id: openai
+    name: OpenAI
+    category: commercial
+    collectors:
+      - type: rss
+        url: https://openai.com/blog/rss.xml
+      - type: web-scrape
+        url: https://platform.openai.com/docs/changelog
+        selector: "section"
+
+  - id: anthropic
+    name: Anthropic
+    category: commercial
+    collectors:
+      - type: web-scrape
+        url: https://docs.anthropic.com/en/docs/about-claude/models
+
+  - id: google-gemini
+    name: Google Gemini
+    category: commercial
+    collectors:
+      - type: rss
+        url: https://blog.google/technology/ai/rss/
+
+  - id: meta-ai
+    name: Meta AI
+    category: commercial
+    collectors:
+      - type: github-releases
+        repo: meta-llama/llama-models
+
+  - id: mistral
+    name: Mistral AI
+    category: commercial
+    collectors:
+      - type: web-scrape
+        url: https://mistral.ai/news/
+
+  - id: cohere
+    name: Cohere
+    category: commercial
+    collectors:
+      - type: web-scrape
+        url: https://docs.cohere.com/changelog
+
+  - id: perplexity
+    name: Perplexity
+    category: commercial
+    collectors:
+      - type: web-scrape
+        url: https://docs.perplexity.ai/changelog
+
+  - id: xai
+    name: xAI (Grok)
+    category: commercial
+    collectors:
+      - type: web-scrape
+        url: https://docs.x.ai/changelog
+
+  - id: amazon-bedrock
+    name: Amazon Bedrock
+    category: commercial
+    collectors:
+      - type: rss
+        url: https://aws.amazon.com/about-aws/whats-new/recent/rss/
+
+  # ═══════════════════════════════════════
+  # Local LLM Managers / Runtimes
+  # ═══════════════════════════════════════
+
+  - id: ollama
+    name: Ollama
+    category: local-llm
+    collectors:
+      - type: github-releases
+        repo: ollama/ollama
+
+  - id: lm-studio
+    name: LM Studio
+    category: local-llm
+    collectors:
+      - type: github-releases
+        repo: lmstudio-ai/lms
+
+  - id: llama-cpp
+    name: llama.cpp
+    category: local-llm
+    collectors:
+      - type: github-releases
+        repo: ggerganov/llama.cpp
+
+  - id: vllm
+    name: vLLM
+    category: local-llm
+    collectors:
+      - type: github-releases
+        repo: vllm-project/vllm
+
+  - id: localai
+    name: LocalAI
+    category: local-llm
+    collectors:
+      - type: github-releases
+        repo: mudler/LocalAI
+
+  - id: jan
+    name: Jan.ai
+    category: local-llm
+    collectors:
+      - type: github-releases
+        repo: janhq/jan
+
+  # ═══════════════════════════════════════
+  # Open Source Models
+  # ═══════════════════════════════════════
+
+  - id: huggingface-trending
+    name: HuggingFace Trending
+    category: oss-models
+    collectors:
+      - type: huggingface
+        endpoint: trending
+
+  - id: deepseek
+    name: DeepSeek
+    category: oss-models
+    collectors:
+      - type: github-releases
+        repo: deepseek-ai/DeepSeek-V3
+
+  - id: qwen
+    name: Qwen
+    category: oss-models
+    collectors:
+      - type: github-releases
+        repo: QwenLM/Qwen2.5
+
+  - id: phi
+    name: Microsoft Phi
+    category: oss-models
+    collectors:
+      - type: huggingface
+        author: microsoft
+        model_prefix: Phi
+
+  - id: gemma
+    name: Google Gemma
+    category: oss-models
+    collectors:
+      - type: huggingface
+        author: google
+        model_prefix: gemma

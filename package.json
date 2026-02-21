@@ -1,0 +1,36 @@
+{
+  "name": "ai-watch",
+  "version": "0.1.0",
+  "module": "src/cli.ts",
+  "type": "module",
+  "bin": {
+    "ai-watch": "./src/cli.ts"
+  },
+  "scripts": {
+    "dev": "bun run src/cli.ts",
+    "build": "bun build src/cli.ts --compile --outfile dist/ai-watch",
+    "install:cli": "bun run build && sudo cp dist/ai-watch /usr/local/bin/ai-watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.0.0",
+    "vitest": "^4.0.18"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.72.0",
+    "cheerio": "^1.0.0",
+    "commander": "^14.0.2",
+    "dotenv": "^17.2.3",
+    "js-yaml": "^4.1.1",
+    "octokit": "^5.0.5",
+    "rss-parser": "^3.13.0",
+    "zod": "^4.3.6"
+  }
+}

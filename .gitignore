@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.ai-watch-state.json
+.gdrive-oauth-client.json
+.gdrive-oauth-token.json
+.gdrive-config.json
+.env
+reports/*.md
+logs/
