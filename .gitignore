@@ -1,5 +1,6 @@
 node_modules/
 dist/
+*.bun-build
 .ai-watch-state.json
 .gdrive-oauth-client.json
 .gdrive-oauth-token.json
