@@ -1,6 +1,6 @@
 import { readFileSync, existsSync } from "node:fs";
-import { join } from "node:path";
 import { formatUpdatesAsMarkdown, formatUpdatesCompact } from "../publishers/format.js";
+import { projectPath } from "../utils/paths.js";
 
 export interface ReportOptions {
   format?: string;
@@ -8,7 +8,7 @@ export interface ReportOptions {
 }
 
 export async function reportCommand(options: ReportOptions): Promise<void> {
-  const latestPath = join(import.meta.dirname, "../../reports/ai-watch-latest.json");
+  const latestPath = projectPath("reports", "ai-watch-latest.json");
 
   if (!existsSync(latestPath)) {
     console.error("No collected data found. Run 'ai-watch collect' first.");

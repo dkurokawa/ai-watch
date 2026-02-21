@@ -2,12 +2,13 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type { Publisher, SummarizedUpdate, PublishConfig } from "./types.js";
 import { formatUpdatesAsMarkdown } from "./format.js";
+import { projectPath } from "../utils/paths.js";
 
 export const localMarkdownPublisher: Publisher = {
   name: "local",
 
   async publish(updates: SummarizedUpdate[], config: PublishConfig): Promise<void> {
-    const outputDir = config.outputDir || join(import.meta.dirname, "../../reports");
+    const outputDir = config.outputDir || projectPath("reports");
     mkdirSync(outputDir, { recursive: true });
 
     const markdown = formatUpdatesAsMarkdown(updates);

@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
-import { join } from "node:path";
+import { projectPath } from "./paths.js";
 
 export interface SourceState {
   lastCollected: string;
@@ -13,7 +13,7 @@ export interface WatchState {
   sources: Record<string, SourceState>;
 }
 
-const STATE_FILE = join(import.meta.dirname, "../../.ai-watch-state.json");
+const STATE_FILE = projectPath(".ai-watch-state.json");
 
 export function loadState(): WatchState {
   if (!existsSync(STATE_FILE)) {

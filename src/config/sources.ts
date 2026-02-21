@@ -1,9 +1,7 @@
-import { readFileSync, existsSync } from "node:fs";
-import { join } from "node:path";
+import { readFileSync } from "node:fs";
 import YAML from "js-yaml";
 import type { SourceConfig, SourceCategory } from "../collectors/types.js";
-
-const CONFIG_PATH = join(import.meta.dirname, "../../config/sources.yaml");
+import { projectPath } from "../utils/paths.js";
 
 interface SourcesYaml {
   sources: SourceConfig[];
@@ -14,11 +12,8 @@ let cachedSources: SourceConfig[] | null = null;
 export function loadSources(): SourceConfig[] {
   if (cachedSources) return cachedSources;
 
-  if (!existsSync(CONFIG_PATH)) {
-    throw new Error(`Sources config not found: ${CONFIG_PATH}`);
-  }
-
-  const raw = readFileSync(CONFIG_PATH, "utf-8");
+  const configPath = projectPath("config", "sources.yaml");
+  const raw = readFileSync(configPath, "utf-8");
   const parsed = YAML.load(raw) as SourcesYaml;
 
   if (!parsed?.sources || !Array.isArray(parsed.sources)) {

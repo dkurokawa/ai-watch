@@ -1,6 +1,6 @@
 import { readFileSync, existsSync } from "node:fs";
-import { join } from "node:path";
 import { getPublisher, getAllPublishers, getPublisherNames } from "../publishers/index.js";
+import { projectPath } from "../utils/paths.js";
 
 export interface PublishOptions {
   target?: string;
@@ -9,7 +9,7 @@ export interface PublishOptions {
 
 export async function publishCommand(options: PublishOptions): Promise<void> {
   // Load the latest report data
-  const latestPath = join(import.meta.dirname, "../../reports/ai-watch-latest.json");
+  const latestPath = projectPath("reports", "ai-watch-latest.json");
 
   if (!existsSync(latestPath)) {
     console.error("No collected data found. Run 'ai-watch collect' first.");
